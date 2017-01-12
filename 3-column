@@ -1,0 +1,93 @@
+        <table cellpadding="0" cellspacing="0" style="height: 600px;border: #999 0px none;">
+          <tr>
+            <td valign="top" width="190" style="padding-right: 20px; padding-top:6px;" class="col1"><br/>
+              <span class="separator"></span> 
+                <script type="text/javascript" src="//www.trumba.com/scripts/spuds.js"></script>
+                 <script type="text/javascript">
+                   $Trumba.addSpud({
+                      webName: "event_calendar",
+                       spudType : "main" });
+                  </script>
+                  <noscript>Your browser must support JavaScript to view this content. 
+                  Please enable JavaScript in your browser settings then try again. 
+                  <a href='http://www.trumba.com'>Events calendar powered by Trumba</a></noscript>
+              <br/>
+              <script type="text/javascript">
+                      $Trumba.addSpud({
+                      webName: "event_calendar",
+                      spudType : "searchlabeled" });
+                      </script>
+              <div style="margin: 12px 0;"><script type="text/javascript">
+                      $Trumba.addSpud({
+                      webName: "event_calendar",
+                      spudType : "mix" });
+                      </script> </div>
+              <script type="text/javascript">
+                      $Trumba.addSpud({
+                      webName: "event_calendar",
+                      spudType : "filter" });
+                      </script> 
+            </td>
+            <td valign="top" width="450" style="padding-right: 20px;" class="col2">
+              <script type="text/javascript">
+                                  var spudId = $Trumba.addSpud({
+                                  webName: "event_calendar",
+                                  spudType : "main"});
+                                  </script>
+              <noscript>
+              <h2>Your browser must support JavaScript to view this content.</h2>
+              Please enable JavaScript in your browser settings then try again.<br/>
+              </noscript>
+              <script type="text/javascript">
+                                   
+                                   var mainSpud = $Trumba.Spuds.controller.getSpudById(spudId);
+                                   mainSpud.container.addEventListener('onFetched', function(event) {
+                                       if ( mainSpud.container.getIFrameDocument( mainSpud.container.iframe ) ) {
+                                          mainSpud.container.getIFrameDocument( mainSpud.container.iframe ).getElementById('ctl06_creditlink').style.color='#CCCCCC';
+                      var eventSummary = mainSpud.getEventSummary(); // get data of fetched trumba event
+                      if (eventSummary) {  // only present on the event details view
+                        
+                      $("#linktext").show();
+                      
+                      var labels = $(mainSpud.container.getIFrameDocument( mainSpud.container.iframe )).contents().find(".LabelAnchor");
+                      
+                       $.each( labels, function(i, item){
+                         if ( item.innerHTML == "Forward to Friends") {
+                           item.innerHTML = "Email to Friends";
+                         } else if ( item.innerHTML == "Add to My Calendar") {
+                           item.innerHTML = "Add to Calendar";
+                         }
+                      });
+                      } else {
+                      $("#linktext").hide();  
+                      }
+                      
+                                      }  
+                                  });
+              
+                                  </script>
+                                  <div id="linktext" style="text-align:left;border-top: #CCCCCC 1px solid; padding-top:16px;display:none;">
+                                    <em>Hint</em>: To copy this event link to your clipboard and paste elsewhere, right-click the "<strong>Link Directly to this Event</strong>" link (CTRL-click on a Mac) and select the option to copy link address.
+                                  </div>
+                                  
+                                  </td>
+            <td valign="top" width="210" style="padding-right: 0px;" class="col3"><h2>Featured Events</h2>
+              <div style="margin-top: 7px;">
+              <script type="text/javascript">
+                                              $Trumba.addSpud({
+                                              webName: "event_calendar",
+                                              spudType : "upcomingphoto"});
+                                              </script>
+              <noscript>
+              <h2>Your browser must support JavaScript to view this content.</h2>
+              Please enable JavaScript in your browser settings then try again.
+              </noscript>
+              
+              <span class="separator"></span>
+              
+              <span class="separator"></span>
+                            
+              
+              </td>
+          </tr>
+        </table>
